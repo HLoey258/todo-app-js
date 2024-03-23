@@ -11,10 +11,18 @@ const todoList = document.querySelector(".todo-list");
 // check valid todo
 const checkTodo = (todoName) => {
   if (!todoName) {
-    alert("Please fill in");
+    Swal.fire({
+      title: "Empty task",
+      text: "Oops, something went wrong",
+      icon: "error",
+    });
     return false;
   } else if (todos.some((todo) => todo.todo === todoName)) {
-    alert("This to do already exist");
+    Swal.fire({
+      title: "This task already exist",
+      text: "Oops, something went wrong",
+      icon: "warning",
+    });
     return false;
   } else {
     return true;
@@ -40,7 +48,11 @@ const addTodo = (todoName) => {
 //handle remove todo
 const removeTodo = (index) => {
   if (!todos[index]) {
-    alert("Task not found");
+    Swal.fire({
+      title: "Task not found",
+      text: "Oops, something went wrong",
+      icon: "error",
+    });
   }
   todos.splice(index, 1);
   renderTodoList();
@@ -64,8 +76,16 @@ const toggleTodo = (index) => {
 const handleKeyPress = (event) => {
   if (todoInput.value != "")
     if (event.key === "Enter") {
-      const todoName = todoInput.value;
-      addTodo(todoName);
+      if (!todoInput.hasAttribute("data-index")) {
+        const todoName = todoInput.value;
+        addTodo(todoName);
+      } else {
+        Swal.fire({
+          title: "Click save to update",
+          text: "That thing is still around?",
+          icon: "warning",
+        });
+      }
     }
 };
 window.addEventListener("keypress", handleKeyPress);
