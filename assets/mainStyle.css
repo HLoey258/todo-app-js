@@ -134,14 +134,20 @@ body {
 }
 #todo-submit:hover {
   background-color: #208dd6;
+  scale: 1.1;
 }
 #todo-edit:hover {
   color: #208dd6;
 }
 .todo-list {
   list-style: none;
+  max-height: 300px;
+  overflow-y: scroll;
+  border-radius: 10px;
 }
-
+.todo-checked {
+  text-decoration: line-through;
+}
 .todo-list-item {
   display: flex;
   flex-direction: row;
@@ -150,6 +156,7 @@ body {
   background-color: #71b7e6;
   padding: 16px 10px 16px 10px;
   border-radius: 10px;
+  margin-bottom: 12px;
 }
 
 .todo-checkbox {
