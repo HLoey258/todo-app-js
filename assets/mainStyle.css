@@ -46,52 +46,59 @@ body {
 
 body {
   font-family: "Poppins", sans-serif;
-  background: var(--background-color);
+  background: var(--background-color) no-repeat;
   display: grid;
   place-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .todo-container {
   background-color: var(--body-color);
-  padding: 35px;
+  padding: 10px;
   border-radius: 10px;
+  margin: 5px;
+  width: 240px;
 }
 .todo-head {
   border: 1px solid lightgray;
   border-radius: 10px;
   display: flex;
-  justify-content: space-between;
+  gap: 30%;
   align-items: center;
-  gap: 150px;
   flex-direction: row;
-  padding: 16px;
-  margin-bottom: 16px;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 
+.title__img {
+  width: 25px;
+  height: 25px;
+}
 .todo-title h3 {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 10px;
   margin-bottom: 15px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 5px;
 }
 
 .todo-title span {
-  font-size: 20px;
+  font-size: 10px;
   color: black;
   font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .todo-progress {
   background: var(--background-color);
-  width: 150px;
-  height: 150px;
+  width: 50px;
+  height: 50px;
   border-radius: 100rem;
   display: flex;
   justify-content: center;
@@ -100,7 +107,7 @@ body {
 }
 
 .todo-progress p {
-  font-size: 35px;
+  font-size: 15px;
   color: white;
   font-weight: bold;
 }
@@ -110,25 +117,32 @@ body {
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .todo-input {
   flex: 1;
   border-radius: 10px;
-  padding: 15px 10px 15px 10px;
+  padding: 5px 5px 5px 5px;
   background-color: lightgray;
   border: none;
-  font-size: 20px;
+  font-size: 8px;
 }
 #todo-submit {
   padding: 10px;
   background-color: #71b7e6;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   border-radius: 100rem;
   color: white;
   transition: linear 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#todo-submit i {
+  font-size: 10px;
 }
 #todo-remove:hover {
   color: #208dd6;
@@ -141,7 +155,7 @@ body {
   color: #208dd6;
 }
 .todo-list {
-  margin-top: 25px;
+  margin-top: 10px;
   list-style: none;
   max-height: 300px;
   overflow-y: scroll;
@@ -156,16 +170,16 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: #71b7e6;
-  padding: 16px 10px 16px 10px;
+  padding: 10px 5px 10px 5px;
   border-radius: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 5px;
 }
 .todo-list-item p {
-  font-size: 20px;
+  font-size: 10px;
 }
 .todo-checkbox input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
 }
 .todo-checkbox {
   display: flex;
@@ -175,14 +189,83 @@ body {
 }
 .todo-action {
   display: flex;
-  gap: 15px;
+  gap: 5px;
 }
 
 #todo-edit,
 #todo-remove {
   background-color: white;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 5px;
+  border-radius: 5px;
   color: #71b7e6;
-  font-size: 14px;
+  font-size: 8px;
+}
+/* Small device */
+@media screen and (max-width: 350px) {
+}
+
+/* Medium device  */
+@media screen and (min-width: 768px) {
+  .todo-container {
+    width: 100%;
+    min-width: 500px;
+    padding: 20px;
+  }
+  .todo-head {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .todo-title h3 {
+    font-size: 20px;
+    gap: 15px;
+  }
+  .todo-head {
+    justify-content: space-between;
+  }
+  .todo-progress {
+    width: 90px;
+    height: 90px;
+  }
+  .todo-title span {
+    font-size: 15px;
+  }
+  .todo-form input {
+    font-size: 12px;
+    padding: 10px;
+  }
+  #todo-submit {
+    width: 30px;
+    height: 30px;
+  }
+  .todo-list {
+    margin-top: 15px;
+  }
+  .todo-list-item {
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+  }
+  .todo-checkbox input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+  }
+  .todo-checkbox p {
+    font-size: 15px;
+  }
+  #todo-edit,
+  #todo-remove {
+    padding: 8px;
+  }
+  .todo-action i {
+    font-size: 12px;
+  }
+  .todo-action {
+    gap: 10px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .todo-container {
+    width: 100%;
+    min-width: 700px;
+    padding: 20px;
+  }
 }
