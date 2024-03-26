@@ -136,8 +136,12 @@ const renderTodoList = () => {
     `;
     todoList.appendChild(todoItem);
   });
+
   const todoNumber = todos.length;
   const todoDone = todos.filter((todo) => todo.status === true).length;
+  if (todoNumber != 0) {
+    todoProgress.innerHTML = `<p>0</p>`;
+  }
   todoProgress.innerHTML = todoNumber
     ? `<p>${todoDone}/${todoNumber}</p>`
     : `<p>${todoDone}</p>`;
